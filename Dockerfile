@@ -1,11 +1,12 @@
-# Use the official NGINX base image
 FROM nginx:latest
 
-# Copy NGINX configuration file
+# Copy the main nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy the site-specific configuration
 COPY default.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80
 EXPOSE 80
 
-# Start NGINX
 CMD ["nginx", "-g", "daemon off;"]
