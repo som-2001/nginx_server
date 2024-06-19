@@ -5,7 +5,7 @@ FROM nginx:latest
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Copy your custom nginx.conf to replace the default one
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/nginx.conf
 
 # Copy your HTML files to the container
 COPY nginx-html /usr/share/nginx/html
