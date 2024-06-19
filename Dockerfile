@@ -1,9 +1,14 @@
+# Use the official NGINX image as the base image
 FROM nginx:latest
 
-# Copy the main nginx.conf
+# Remove the default NGINX configuration file
+RUN rm /etc/nginx/nginx.conf
+
+# Copy your custom nginx.conf to replace the default one
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Expose port 80
+# Expose port 80 to allow external access
 EXPOSE 80
 
+# Command to run NGINX when the container starts
 CMD ["nginx", "-g", "daemon off;"]
